@@ -23,7 +23,8 @@ namespace AddressBookADO.NET
             DBConnector database = new DBHandler();
           //  database.Insert(model);
           //  database.Update(model, "rohit");
-            database.Delete("rohit");
+            database.Delete("'rohit'");
+            database.SelectByCityORState("'pune'");
 
         }
     }

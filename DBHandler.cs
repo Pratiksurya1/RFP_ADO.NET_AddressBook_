@@ -114,5 +114,49 @@ namespace AddressBookADO.NET
                 connection.Close();
             }
         }
+
+        public override void SelectByCityORState(String location)
+        {
+            SqlConnection connection = GetDBConnection();
+            try
+            {
+                using (connection)
+                {
+                    AddressBookModel model = new AddressBookModel();
+                    SqlCommand command = new SqlCommand("AddressBookProcedure", connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("city", location);
+                    command.Parameters.AddWithValue("state", location);
+                    command.Parameters.AddWithValue("stmnt", "Select");
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            int n = reader.GetInt32(0);
+                            model.firstName = reader[1].ToString();
+                            model.lastName = reader[2].ToString();
+                            model.address = reader[3].ToString();
+                            model.city = reader[4].ToString();
+                            model.state = reader[5].ToString();
+                            model.zip = reader[6].ToString();
+                            model.mobileNo = reader[7].ToString();
+                            model.email = reader[8].ToString();
+
+                            Console.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}", reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), reader[5].ToString(), reader[6].ToString(), reader[7].ToString(), reader[8].ToString());
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No Data Found..");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

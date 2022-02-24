@@ -27,4 +27,9 @@ IF @stmnt='Delete'
 BEGIN 
 DELETE FROM contact_info WHERE firstName=@position
 END
+
+IF @stmnt='Select'
+BEGIN
+SELECT * FROM contact_info WHERE city=@city OR state=@state
+END
 END
