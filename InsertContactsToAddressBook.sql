@@ -15,11 +15,16 @@ BEGIN
 
 IF @stmnt='Insert'
 BEGIN
-INSERT INTO address_book(firstName,lastName,address,city,state,zip,mobileNo,email)VALUES(@firstName,@lastName,@address,@city,@state,@zip,@mobileNo,@email)
+INSERT INTO contact_info(firstName,lastName,address,city,state,zip,mobileNo,email)VALUES(@firstName,@lastName,@address,@city,@state,@zip,@mobileNo,@email)
 END
 
 IF @stmnt='Update'
 BEGIN
-UPDATE address_book SET firstName=@firstName,lastName=@lastName,address=@address,city=@city,state=@state,zip=@zip,mobileNo=@mobileNo,email=@email WHERE firstName=@position
+UPDATE contact_info SET firstName=@firstName,lastName=@lastName,address=@address,city=@city,state=@state,zip=@zip,mobileNo=@mobileNo,email=@email WHERE firstName=@position
+END
+
+IF @stmnt='Delete'
+BEGIN 
+DELETE FROM contact_info WHERE firstName=@position
 END
 END

@@ -15,5 +15,6 @@ namespace AddressBookADO.NET
         }
         public abstract void Insert(AddressBookModel model);
         public abstract void Update(AddressBookModel model, String position);
+        public abstract void Delete(string position);
     }
 }

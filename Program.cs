@@ -21,8 +21,9 @@ namespace AddressBookADO.NET
             model.email = "rohit665@gmail.com";
 
             DBConnector database = new DBHandler();
-            database.Insert(model);
-            database.Update(model, "rohit");
+          //  database.Insert(model);
+          //  database.Update(model, "rohit");
+            database.Delete("rohit");
 
         }
     }

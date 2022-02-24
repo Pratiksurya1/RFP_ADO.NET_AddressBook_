@@ -58,7 +58,7 @@ namespace AddressBookADO.NET
                 {
                     using (connection)
                     {
-                        SqlCommand command = new SqlCommand("InsertContactsToAddressBook", connection);
+                        SqlCommand command = new SqlCommand("AddressBookProcedure", connection);
                         command.CommandType = System.Data.CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("stmnt", "Update");
                         command.Parameters.AddWithValue("position", position);
@@ -89,7 +89,30 @@ namespace AddressBookADO.NET
             {
                 connection.Close();
             }
-
+        }
+        public override void Delete(string position)
+        {
+            SqlConnection connection = GetDBConnection();
+            try
+            {
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("AddressBookProcedure", connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("stmnt", "Delete");
+                    command.Parameters.AddWithValue("position", position);
+                    connection.Open();
+                    Console.WriteLine("Data Delete Successfully");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
         }
     }
 }
