@@ -25,3 +25,4 @@ CREATE TABLE contact_type(
 type_Id INT IDENTITY PRIMARY KEY,
 contact_name VARCHAR (20),
 )
+
