@@ -20,17 +20,10 @@ namespace AddressBookADO.NET
             model.mobileNo = "4567891230";
             model.email = "rohit665@gmail.com";
 
-            DBConnector connector = new DBHandler();
-            int flag = connector.Insert(model);
+            DBConnector database = new DBHandler();
+            database.Insert(model);
+            database.Update(model, "rohit");
 
-            if (flag != 0)
-            {
-                Console.WriteLine("Data Inserted Successfully");
-            }
-            else
-            {
-                Console.WriteLine("Data Not Inserted ");
-            }
         }
     }
 }

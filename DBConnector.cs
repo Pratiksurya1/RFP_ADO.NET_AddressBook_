@@ -13,6 +13,7 @@ namespace AddressBookADO.NET
         {
             return new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AddressBook;Integrated Security=True");
         }
-        public abstract int Insert(AddressBookModel model);
+        public abstract void Insert(AddressBookModel model);
+        public abstract void Update(AddressBookModel model, String position);
     }
 }
