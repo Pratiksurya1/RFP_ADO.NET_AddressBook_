@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace AddressBookADO.NET
@@ -283,6 +285,41 @@ namespace AddressBookADO.NET
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+        }
+        public void JsonWriter()
+        {
+            SqlConnection connection = GetDBConnection();
+
+            Newtonsoft.Json.JsonSerializer jsonSerializer = new Newtonsoft.Json.JsonSerializer();
+            using (StreamWriter writer = new StreamWriter(@"D:\.Net\C#\AddressBookADO.NET\JsonFile.json"))
+            using (JsonWriter jsonWriter = new JsonTextWriter(writer))
+
+            using (connection)
+            {
+                List<String> list = new List<String>();
+                SqlCommand command = new SqlCommand("Select * from contact_info",connection);
+                command.CommandType = System.Data.CommandType.Text;
+                connection.Open();
+                
+                SqlDataReader reader = command.ExecuteReader();
+                list.Add((string)reader["book_Id"]);
+                list.Add((string)reader["contact_Id"]);
+                list.Add((string)reader["firstName"]);
+                list.Add((string)reader["lastName"]);
+                list.Add((string)reader["address"]);
+                list.Add((string)reader["city"]);
+                list.Add((string)reader["state"]);
+                list.Add((string)reader["zip"]);
+                list.Add((string)reader["email"]);
+                list.Add((string)reader["mobileNo"]);
+                Console.WriteLine(list);
+                {
+                    foreach (var info in list)
+                    {
+                        jsonSerializer.Serialize(jsonWriter, list);
+                    }
+                }
             }
         }
     }

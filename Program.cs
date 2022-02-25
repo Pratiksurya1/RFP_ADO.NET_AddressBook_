@@ -34,16 +34,16 @@ namespace AddressBookADO.NET
                 };
 
            DBHandler database = new DBHandler();
-          //  database.Insert(model);
-          //  database.Update(model, "rohit");
-         //   database.Delete("rohit");
-           // database.SelectByCityORState("pune");
-          //  database.SelectCountByCountryORState();
-         //   database.SortByCityORState("pune");
+            //  database.Insert(model);
+            //  database.Update(model, "rohit");
+            //   database.Delete("rohit");
+            // database.SelectByCityORState("pune");
+            //  database.SelectCountByCountryORState();
+            //   database.SortByCityORState("pune");
             //    database.AddMultpleContact(model1,model2);
-           // database.AddBookName("Book1");
-            database.FileWriter();
-
+            // database.AddBookName("Book1");
+            //   database.FileWriter();
+            database.JsonWriter();
         }
     }
 }

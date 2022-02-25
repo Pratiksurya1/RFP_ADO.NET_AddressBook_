@@ -20,3 +20,4 @@ D:\.Net\C#\AddressBookADO.NET\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
 D:\.Net\C#\AddressBookADO.NET\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\.Net\C#\AddressBookADO.NET\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\.Net\C#\AddressBookADO.NET\obj\Debug\net6.0\AddressBookADO.NET.csproj.CopyComplete
+D:\.Net\C#\AddressBookADO.NET\bin\Debug\net6.0\Newtonsoft.Json.dll
