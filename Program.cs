@@ -41,7 +41,8 @@ namespace AddressBookADO.NET
           //  database.SelectCountByCountryORState();
          //   database.SortByCityORState("pune");
             //    database.AddMultpleContact(model1,model2);
-            database.AddBookName("Book1");
+           // database.AddBookName("Book1");
+            database.FileWriter();
 
         }
     }

@@ -257,5 +257,33 @@ namespace AddressBookADO.NET
                 Console.WriteLine(ex.Message);
             }
         }
+
+        public void FileWriter()
+        {
+            String path = "D:/.Net/C#/AddressBookADO.NET.ContactInto.txt";
+            SqlConnection connection = GetDBConnection();
+            try
+            {
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("Select * from contact_info", connection);
+                    command.CommandType = System.Data.CommandType.Text;
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader(); 
+
+                    using (StreamWriter sw = new StreamWriter(path))
+                    {
+                        foreach (SqlDataReader info in reader)
+                        {                          
+                            sw.WriteLine(info["book_Id"] + "\t" + info["contact_Id"] + "\t" + info["firstName"] + "\t" + info["lastName"] + "\t" + info["address"] + "\t" + info["city"] + "\t" + info["state"]);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }
