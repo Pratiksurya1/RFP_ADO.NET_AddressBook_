@@ -214,7 +214,6 @@ namespace AddressBookADO.NET
                         {
                             count++;
                             Console.WriteLine("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}", reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), reader[5].ToString(), reader[6].ToString(), reader[7].ToString(), reader[8].ToString());
-
                         }
                         Console.WriteLine(count + " Person From " + location);
                     }
@@ -231,6 +230,13 @@ namespace AddressBookADO.NET
             finally
             {
                 connection.Close();
+            }
+        }
+        public override void AddMultpleContact(params AddressBookModel[] models)
+        {           
+            foreach(AddressBookModel model in models)
+            {
+                Insert(model);
             }
         }
     }

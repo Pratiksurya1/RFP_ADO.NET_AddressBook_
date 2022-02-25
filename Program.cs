@@ -10,23 +10,37 @@ namespace AddressBookADO.NET
     {
         public static void Main(String[] args)
         {
-            AddressBookModel model = new AddressBookModel();
-            model.firstName = "rohit";
-            model.lastName = "jadhav";
-            model.address = "Pu-154";
-            model.city = "pune";
-            model.state = "mharashtra";
-            model.zip = "425001";
-            model.mobileNo = "4567891230";
-            model.email = "rohit665@gmail.com";
+            AddressBookModel model1 = new AddressBookModel
+            {
+                firstName = "rohit",
+                lastName = "jadhav",
+                address = "Pu-154",
+                city = "pune",
+                state = "mharashtra",
+                zip = "425001",
+                mobileNo = "4567891230",
+                email = "rohit665@gmail.com"
+            };
+            AddressBookModel model2 = new AddressBookModel
+            {
+                firstName = "ketan",
+                lastName = "shinde",
+                address = "Pu-154",
+                city = "nashik",
+                state = "mharashtra",
+                zip = "425001",
+                mobileNo = "4567891230",
+                email ="ketan15@gmail.com"
+                };
 
-            DBConnector database = new DBHandler();
+           DBConnector database = new DBHandler();
           //  database.Insert(model);
           //  database.Update(model, "rohit");
          //   database.Delete("rohit");
            // database.SelectByCityORState("pune");
-            database.SelectCountByCountryORState();
-            database.SortByCityORState("pune");
+          //  database.SelectCountByCountryORState();
+         //   database.SortByCityORState("pune");
+                database.AddMultpleContact(model1,model2);
 
         }
     }

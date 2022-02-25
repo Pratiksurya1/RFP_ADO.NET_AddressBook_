@@ -19,5 +19,6 @@ namespace AddressBookADO.NET
         public abstract void SelectByCityORState(String location);
         public abstract void SelectCountByCountryORState();
         public abstract void SortByCityORState(string location);
+        public abstract void AddMultpleContact(params AddressBookModel[] models);
     }
 }
