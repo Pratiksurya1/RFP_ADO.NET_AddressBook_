@@ -26,3 +26,9 @@ type_Id INT IDENTITY PRIMARY KEY,
 contact_name VARCHAR (20),
 )
 
+select * from contact_info
+
+SELECT * FROM contact_info WHERE city=@city OR state=@state
+
+
+select city,count(*) from contact_info group by city 

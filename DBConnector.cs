@@ -17,5 +17,7 @@ namespace AddressBookADO.NET
         public abstract void Update(AddressBookModel model, String position);
         public abstract void Delete(string position);
         public abstract void SelectByCityORState(String location);
+
+        public abstract void SelectCountByCountryORState();
     }
 }
