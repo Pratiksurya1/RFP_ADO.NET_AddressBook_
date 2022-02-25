@@ -239,5 +239,23 @@ namespace AddressBookADO.NET
                 Insert(model);
             }
         }
+        public void AddBookName(String BookName)
+        {
+            SqlConnection connection = GetDBConnection();
+            try
+            {
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("insert into AddressBook values (" +BookName+ ")", connection);
+                    command.CommandType = System.Data.CommandType.Text;
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                    Console.WriteLine("Book name is add");
+                }
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
     }
 }

@@ -33,14 +33,15 @@ namespace AddressBookADO.NET
                 email ="ketan15@gmail.com"
                 };
 
-           DBConnector database = new DBHandler();
+           DBHandler database = new DBHandler();
           //  database.Insert(model);
           //  database.Update(model, "rohit");
          //   database.Delete("rohit");
            // database.SelectByCityORState("pune");
           //  database.SelectCountByCountryORState();
          //   database.SortByCityORState("pune");
-                database.AddMultpleContact(model1,model2);
+            //    database.AddMultpleContact(model1,model2);
+            database.AddBookName("Book1");
 
         }
     }
