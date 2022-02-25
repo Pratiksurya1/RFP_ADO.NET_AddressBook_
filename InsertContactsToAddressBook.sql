@@ -28,9 +28,19 @@ BEGIN
 DELETE FROM contact_info WHERE firstName=@position
 END
 
+IF @stmnt='Select'
+BEGIN 
+SELECT * FROM contact_info WHERE city=@city OR state=@state
+END
+
 IF @stmnt='count'
 BEGIN
 select city,count(*) as citycount from contact_info group by city
 select state,count(*) as satecount from contact_info group by state
+END
+
+IF @stmnt='Sortasc'
+BEGIN 
+SELECT * FROM contact_info WHERE city=@city OR state=@state ORDER BY firstName ASC
 END
 END
